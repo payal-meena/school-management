@@ -15,7 +15,7 @@ function StudentList({ onEdit, refresh }) {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/students");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/students`);
       setStudents(res.data);
     } catch (error) {
       setError("Failed to fetch students!");
@@ -27,7 +27,7 @@ function StudentList({ onEdit, refresh }) {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this student?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/students/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/students/${id}`);
       setDeleteMsg("Student deleted successfully!");
       fetchStudents();
       setTimeout(() => setDeleteMsg(""), 2000);

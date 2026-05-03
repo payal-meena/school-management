@@ -58,7 +58,7 @@ const AddStudent = () => {
 
         try {
             setLoading(true);
-            await axios.post("http://localhost:5000/api/students", formData);
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/students`, formData);
             setSuccessMsg("Student added successfully!");
             setFormData({
                 name: '',

@@ -76,7 +76,7 @@ function EditStudent({ student, onSuccess }) {
     try {
       setLoading(true);
       await axios.put(
-        `http://localhost:5000/api/students/${student._id}`,
+        `${import.meta.env.VITE_API_URL}/api/students/${student._id}`,
         formData
       );
       setSuccessMsg("Student updated successfully!");
