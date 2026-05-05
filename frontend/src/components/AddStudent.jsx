@@ -8,6 +8,7 @@ const AddStudent = () => {
         rollNo: "",
         email: "",
         phone: "",
+        address: "",
     });
 
     const [errors, setErrors] = useState({});
@@ -41,6 +42,9 @@ const AddStudent = () => {
         } else if (!/^[0-9]{10}$/.test(formData.phone)) {
             newErrors.phone = "Phone must be 10 digits";
         }
+        if(!formData.address.trim()) {
+            newErrors.address = "address is required";
+        }
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -67,6 +71,7 @@ const AddStudent = () => {
                 rollNo: '',
                 email: '',
                 phone: '',
+                address: '',
             });
             setTimeout(() => {
                 setSuccessMsg("");
@@ -194,6 +199,23 @@ const AddStudent = () => {
           />
           {errors.phone && (
             <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+          )}
+        </div>
+        
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Address
+          </label>
+          <textarea
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            placeholder="Enter your address"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          {errors.address && (
+            <p className="text-red-500 text-sm mt-1">{errors.address}</p>
           )}
         </div>
 

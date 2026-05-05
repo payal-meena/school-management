@@ -100,6 +100,7 @@ function StudentList({ onEdit, refresh }) {
                   <th className="px-4 py-3">Roll No</th>
                   <th className="px-4 py-3">Email</th>
                   <th className="px-4 py-3">Phone</th>
+                  <th className="px-4 py-3">Address</th>
                   <th className="px-4 py-3 rounded-tr-lg text-center">Actions</th>
                 </tr>
               </thead>
@@ -117,6 +118,7 @@ function StudentList({ onEdit, refresh }) {
                     <td className="px-4 py-3">{student.rollNo}</td>
                     <td className="px-4 py-3">{student.email}</td>
                     <td className="px-4 py-3">{student.phone}</td>
+                    <td className="px-4 py-3">{student.address}</td>
                     <td className="px-4 py-3">
                       <div className="flex justify-center gap-2">
                         <button
