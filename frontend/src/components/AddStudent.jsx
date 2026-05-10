@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-const AddStudent = () => {
+const AddStudent = ({ onSuccess }) => {
     const [formData, setFormData] = useState({
         name: "",
         age: "",

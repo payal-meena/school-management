@@ -10,7 +10,8 @@ router.post('/', async (req,res) => {
         const saved = await student.save();
         res.status(201).json(saved);
     } catch (err) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: err.message });
+        console.log(err)
     }
 });
 
@@ -20,7 +21,7 @@ router.get('/', async (req,res) => {
         const students = await Student.find();
         res.status(200).json(students);
     } catch (err) {
-        res.status(500).json({ message: error.message});
+        res.status(500).json({ message: err.message});
     }
 });
 
@@ -33,7 +34,7 @@ router.get('/:id', async (req,res) => {
         }
         res.status(200).json(student);
     } catch (error) {
-        res.status(500).json({ message: error.message});
+        res.status(500).json({ message: err.message});
     }
 });
 
@@ -46,7 +47,7 @@ router.put('/:id', async (req,res) => {
         }
         res.status(200).json(updated);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: err.message });
     }
 });
 
@@ -59,7 +60,7 @@ router.delete('/:id', async (req,res) => {
         }
         res.status(200).json({ message: 'Student deleted successfully!'});
     } catch (err) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: err.message });
     }
 })
 

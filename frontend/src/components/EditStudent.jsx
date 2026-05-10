@@ -9,6 +9,7 @@ function EditStudent({ student, onSuccess }) {
     rollNo: "",
     email: "",
     phone: "",
+    address: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -25,6 +26,7 @@ function EditStudent({ student, onSuccess }) {
         rollNo: student.rollNo,
         email: student.email,
         phone: student.phone,
+        address: student.address,
       });
     }
   }, [student]);
@@ -60,6 +62,9 @@ function EditStudent({ student, onSuccess }) {
       newErrors.phone = "Phone must be 10 digits!";
     }
 
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required!";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -213,6 +218,24 @@ function EditStudent({ student, onSuccess }) {
             <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
           )}
         </div>
+
+          <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Address
+          </label>
+          <textarea
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            placeholder="Enter Address"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          {errors.address && (
+            <p className="text-red-500 text-sm mt-1">{errors.address}</p>
+          )}
+        </div>
+
 
         <div className="flex gap-3">
           <button
